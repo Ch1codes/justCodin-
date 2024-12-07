@@ -1,0 +1,167 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    background: #f5f5dc; /* Cream background */
+    color: #ff8c42; /* Bright brown text color */
+  }
+  h2{
+    text-align:center;
+  }
+  
+  /* General Styles */
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .container {
+    max-width: 800px;
+    width: 90%;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+  }
+
+  /* Header Styles */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #a0522d; /* Bright brown accent */
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+  }
+  
+  .header .logo {
+    font-weight: bold;
+  }
+  
+  .sos-button {
+    background: #e74c3c; /* Bright red */
+    color: white;
+    font-size: 1rem;
+    padding: 8px 16px;
+    border-radius: 50px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .sos-button:hover {
+    background: #c0392b; /* Darker red */
+  }
+  
+  /* Main Content */
+  main {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .section {
+    margin-bottom: 20px;
+  }
+  
+ .section-title {
+    font-size: 1.5rem;
+    text-align: center;
+    color: white;
+    margin: 0;
+    padding: 10px;
+    background: #ff8c42; 
+    border-radius: 8px;
+  } 
+  
+  .component-box {
+    text-align: center;
+    bottom: auto;
+    margin: 100Spx 0;
+  /*  background: #eaeaea;*/
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: #ff8c42; /* Bright brown accent */
+  }
+  
+  .ar-button {
+    background: #5f2704; /* Bright orange */
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .ar-button:hover {
+    background: #d1783b;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+  
+    .sos-button {
+        align-self: flex-end;
+        margin-top: 10px;
+    }
+  
+    .section-title {
+        font-size: 1rem;
+        padding: 8px;
+    }
+  
+    .component-box {
+        height: 150px;
+    }
+  
+    .ar-button {
+        padding: 6px 15px;
+        font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header {
+        font-size: 1.2rem;
+        padding: 8px;
+    }
+  
+    .sos-button {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+  
+    .section-title {
+        font-size: 0.9rem;
+        padding: 6px;
+    }
+  
+    .component-box {
+        height: 120px;
+    }
+  
+    .ar-button {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+  }
+  

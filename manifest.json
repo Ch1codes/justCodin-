@@ -1,0 +1,21 @@
+{
+    "name": "Herna Jaam",
+    "short_name": "HernaJaam",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#f5f5dc",
+    "theme_color": "#ff8c42",
+    "icons": [
+      {
+        "src": "hello.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "hello.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  

@@ -1,0 +1,65 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #ff6f6f; /* Light red background */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+  }
+  
+  /* Help Container */
+  .help-container {
+    text-align: center;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.1); /* Subtle transparency */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Operator Icon */
+  .operator-icon {
+    margin-bottom: 20px;
+  }
+  
+  .operator-icon img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* Heading */
+  h1 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: white;
+  }
+  
+  /* Subtext */
+  p {
+    font-size: 1rem;
+    margin: 10px 0 20px 0;
+    color: white;
+  }
+  
+  /* Cancel Button */
+  .cancel-button {
+    background: #c0392b; /* Darker red for button */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .cancel-button:hover {
+    background: #e74c3c;
+  }
+  

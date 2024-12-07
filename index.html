@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herna Jaam</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="script1.js" defer></script>  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f4f4f4;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .section {
+      margin: 20px 0;
+    }
+
+    #calendar {
+      text-align: center;
+    }
+
+    #map {
+      position: absolute;
+      bottom: 100px; /* Distance from the bottom of the page */
+      left: 50%; /* Center it horizontally */
+      transform: translateX(-50%); /* Adjust the map's position to be perfectly centered horizontally */
+      width: 500px;  /* Adjust width as needed */
+      height: 200px;  /* Adjust height as needed */
+    }
+
+    iframe {
+      border: none;
+      max-width: 100%; /* Make iframe responsive */
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .component-box {
+      text-align: center;
+    }
+
+    .leaflet-container {
+      width: 50%;
+      position: relative;
+      left: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <span class="logo">HERNA JAAM!</span>
+      <a href="help.html"><button class="sos-button">SOS</button></a>
+    </header>
+    <main>
+      <section class="section">
+        <h2 class="section-title">Calendar</h2>
+        <div id="calendar" class="component-box">
+          <!-- Google Calendar Embed -->
+          <iframe 
+  src="https://calendar.google.com/calendar/embed?showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&height=600&wkst=1&bgcolor=%23ffffff&src=your_calendar_id&color=%23E4C441&ctz=Asia%2FKathmandu" 
+  style="border: 0" 
+  width="395" 
+  height="199" 
+  frameborder="0" 
+  scrolling="no">
+</iframe>
+
+
+        </div>
+      </section>
+      
+      <section class="section">
+        <h2 class="section-title">Map</h2>
+        <div id="map" class="component-box"></div> <!-- Added the missing map div -->
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <button class="ar-button">AR</button>
+    </footer>
+  </div>
+
+  <!-- Include Leaflet.js -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+  <script>
+      // Sample event data
+      const events = [
+          { latitude: 27.67088, longitude: 85.43969, title: "Hack the circle finals" },
+          { latitude: 27.670681345917718 , longitude: 85., title: "Event 2 in Kathmandu" },
+          { latitude: 27.7036, longitude: 85.2800, title: "Event 3 in Kathmandu" }
+      ];
+
+      // Function to handle event selection
+      function handleEventSelect(event) {
+          const eventList = document.getElementById('event-list');
+          const eventItem = document.createElement('li');
+          eventItem.classList.add('event-item');
+          eventItem.textContent = `Title: ${event.title}, Coordinates: ${event.latitude}, ${event.longitude}`;
+          eventList.innerHTML = ''; // Clear the previous details
+          eventList.appendChild(eventItem);
+      }
+
+      // EventMap class
+      class EventMap {
+          constructor(events, onEventSelect) {
+              this.events = events;
+              this.onEventSelect = onEventSelect;
+              this.map = null;
+              this.markers = [];
+          }
+
+          initialize() {
+              // Initialize the map, centered on Kathmandu, Nepal
+              this.map = L.map('map').setView([27.67088, 85.43969], 13); // Coordinates for Kathmandu, Nepal
+
+              // Add OpenStreetMap tile layer
+              L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                  attribution: '&copy; OpenStreetMap contributors'
+              }).addTo(this.map);
+
+              // Add markers for the events
+              this.addMarkers();
+          }
+
+          addMarkers() {
+              this.events.forEach(event => {
+                  const { latitude, longitude, title } = event;
+
+                  const marker = L.marker([latitude, longitude])
+                      .addTo(this.map)
+                      .bindPopup(title);
+
+                  // Attach a click event to each marker to trigger onEventSelect
+                  marker.on('click', () => {
+                      this.onEventSelect(event); // Trigger the event selection callback
+                  });
+
+                  this.markers.push(marker); // Save the marker for later manipulation
+              });
+          }
+      }
+
+      // Initialize and create a new EventMap instance
+      const eventMap = new EventMap(events, handleEventSelect);
+      eventMap.initialize();
+  </script>
+</body>
+</html>

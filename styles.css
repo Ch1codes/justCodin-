@@ -1,0 +1,260 @@
+/* General Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  background: #f5f5dc; /* Cream background */
+  color: #ff8c42; /* Bright brown text color */
+}
+
+/* General Styles */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 10px; /* Add some padding to avoid overflow on small screens */
+}
+
+.container {
+  max-width: 100%;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 10px;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ff8c42; /* Bright brown accent */
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.header .logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  white-space: nowrap; /* Prevents logo from wrapping */
+}
+
+.sos-button {
+  background: #e74c3c; /* Bright red */
+  color: white;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sos-button:hover {
+  background: #c0392b; /* Darker red */
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  padding: 10px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  text-align: center;
+  color: white;
+  margin: 0;
+  padding: 10px;
+  background: #ff8c42; /* Bright orange for titles */
+  border-radius: 8px;
+}
+
+.component-box {
+  text-align: center;
+  bottom: auto;
+  margin: 10px 0;
+  background: #eaeaea;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Map Styles */
+#map {
+  width: 100%;
+  height: 300px;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 10px;
+  background: #f5f5dc; /* Cream background fallback */
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+/* Footer Styles */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: #ff8c42; /* Bright brown accent */
+}
+
+.ar-button {
+  background: #5f2704; /* Bright orange */
+  color: white;
+  border: none;
+  padding: 5px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.ar-button:hover {
+  background: #d1783b;
+}
+
+.details-button {
+  background: #5f2704; /* Bright orange */
+  color: white;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.details-button:hover {
+  background: #d1783b;
+}
+
+/* Responsive Design */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1.3rem;
+  }
+
+  .sos-button {
+    align-self: flex-end;
+    margin-top: 10px;
+    font-size: 1rem;
+    padding: 8px 15px;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+    padding: 8px;
+  }
+
+  .component-box {
+    height: auto;
+  }
+
+  .ar-button {
+    padding: 6px 15px;
+    font-size: 1rem;
+  }
+
+  #map {
+    height: 250px;
+  }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  body {
+    padding: 5px; /* Reduce padding on mobile */
+  }
+
+  .header {
+    font-size: 1.2rem;
+    padding: 8px;
+  }
+
+  .header .logo {
+    font-size: 1rem;
+  }
+
+  .sos-button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  .section-title {
+    font-size: 1rem;
+    padding: 6px;
+  }
+
+  .component-box {
+    height: auto;
+    margin: 5px 0;
+  }
+
+  .ar-button,
+  .details-button {
+    font-size: 0.9rem;
+    padding: 5px 12px;
+  }
+
+  #map {
+    height: 200px;
+  }
+}
+
+/* Small Mobile (320px and below) */
+@media (max-width: 320px) {
+  .header {
+    font-size: 1rem;
+    padding: 6px;
+  }
+
+  .sos-button {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .section-title {
+    font-size: 0.9rem;
+    padding: 5px;
+  }
+
+  .ar-button,
+  .details-button {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
+
+  #map {
+    height: 180px;
+  }
+}
